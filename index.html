@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8" />
+	<title>DMM検索</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="css/dmm.css" />
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="js/jsrender-1.0pre.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/ecl.js"></script>
+	<script type="text/javascript" src="js/dmm.js"></script>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="/">DMM検索</a>
+  </div>
+</div>
+
+<form id="search" class="well">
+  <div class="form-inline">
+    <div class="btn-group" data-toggle-name="site" data-toggle="buttons-radio">
+      <button type="button" class="btn" data-toggle="button" value="DMM.com">DMM.com</button>
+      <button type="button" class="btn btn-danger" data-toggle="button" value="DMM.co.jp">DMM.R18</button>
+    </div>
+    <input type="hidden" name="site" value="DMM.com" />
+    <select name="service"></select>
+    <select name="floor" class="fade hide"></select>
+  </div>
+  <div class="form-inline">
+    <label class="control-label">並び順 :
+      <select name="sort">
+        <option value="rank">人気</option>
+        <option value="+price">価格が高い</option>
+        <option value="-price">価格が安い</option>
+        <option value="date">新着</option>
+        <option value="review">評価</option>
+      </select>
+    </label>
+    <span class="divider"></span>
+    <label class="control-label">表示件数 :
+      <select name="hits">
+        <option value="20">20件</option>
+        <option value="30">30件</option>
+        <option value="50">50件</option>
+        <option value="80">80件</option>
+        <option value="100">100件</option>
+      </select>
+    </label>
+    <span class="divider"></span>
+    <label class="control-label" class="fade hide">
+      在庫絞込み :
+      <select name="stock">
+        <option value="">全件</option>
+        <option value="stock">在庫あり</option>
+        <option value="reserve">予約受付中</option>
+        <option value="mono">DMM通販のみ</option>
+        <option value="dmp">マーケットプレイスのみ</option>
+      </select>
+    </label>
+    <input type="hidden" name="offset" value="1" />
+  </div>
+  <div class="form-inline">
+    <input name="keyword" type="text" value="" placeholder="キーワード" />
+  </div>
+  <div class="form-submit">
+    <input type="submit" class="btn btn-primary btn-large btn-block" value="検索" />
+  </div>
+</form>
+
+<div class="alert alert-error fade" id="alert"></div>
+
+<div id="loading" class="progress progress-striped active hide fade">
+  <div class="bar"></div>
+</div>
+
+<table id="items" class="table table-striped fade"></table>
+
+<div id="credit">
+  <p><a href="https://affiliate.dmm.com/api/"><img src="http://pics.dmm.com/af/web_service/com_135_17.gif" width="135" height="17" alt="WEB SERVICE BY DMM.com" /></a></p>
+  <p>Created by <a href="http://twitter.com/moi_fc2">@moi_fc2</a></p>
+</div>
+
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <div class="pagination pagination-centered fade"></div>
+  </div>
+</div>
+
+<script id="template-item" type="text/x-jsrender">
+<tr>
+  <td class="image">
+    <a href="{{:affiliateURL}}" title="{{:title}}" rel="bookmark">
+      {{if imageURL}}
+        <img src="{{:imageURL.list}}" alt="{{:title}}" />
+      {{else}}
+        <img src="img/noimage.png" width="90" height="90" alt="{{:title}}" />
+      {{/if}}
+    </a>
+  </td>
+  <td class="title">
+    <a href="{{:affiliateURL}}" title="{{:title}}" rel="bookmark">{{:title}}</a>
+    <ul class="tag">
+      {{if iteminfo.keyword}}
+      {{for iteminfo.keyword}}
+      <li><a href="#" data-tag="{{:id}}">{{:name}}</a></li>
+      {{/for}}
+      {{/if}}
+    </ul>
+  </td>
+</tr>
+</script>
+
+</body>
+</html>

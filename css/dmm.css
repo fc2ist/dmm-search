@@ -1,0 +1,124 @@
+html {
+  overflow-x: hidden;
+}
+body {
+  padding: 41px 0 81px;
+}
+.navbar-fixed-top .navbar-inner {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+#search {
+  margin: 24px 16px;
+}
+#search input,
+#search select,
+#search button {
+  margin-bottom: 8px;
+}
+#search .form-inline {
+  margin-bottom: 8px;
+}
+#search input[name=keyword] {
+  line-height: 30px;
+  font-size: 18px;
+  padding: 20px 6px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+#search .divider {
+  margin-left: 16px;
+}
+#search .form-submit {
+  margin-top: 24px;
+}
+#loading {
+  margin: 80px auto;
+  width: 200px;
+}
+#loading .bar {
+  width: 100%;
+}
+#alert {
+  display: hidden;
+}
+#credit {
+  text-align: right;
+  margin: 24px 16px;
+}
+#items {
+  width: 100%;
+}
+#items td {
+  vertical-align: middle;
+}
+#items .image {
+  width: 90px;
+}
+#items .image img {
+  max-width: 90px;
+  height: auto;
+  float: left;
+}
+#items .tag {
+  margin: 4px 0 0;
+  list-style: none;
+  font-size: 0.8em;
+}
+#items .tag li {
+  display: inline-block;
+}
+#items .tag li a {
+  display: inline-block;
+  position: relative;
+  margin: 1px 2px 1px 10px;
+  padding: 0 4px 0 7px;
+  line-height: 20px;
+  background-color: #ff4499;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  color: white;
+  text-decoration: none;
+}
+#items .tag li a::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-right-color: #ff4499;
+}
+#items .tag li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: -2px;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+@media (max-width: 979px) {
+  body {
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-fixed-top .navbar-inner {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
