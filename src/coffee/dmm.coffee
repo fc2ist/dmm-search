@@ -203,6 +203,7 @@ class UI
     site    = $('input[name=site]', form)
     hits    = $('select[name=hits]', form)
     service = $('select[name=service]', form)
+    keyword = $('input[name=keyword]', form)
     paginations = $('.pagination')
     loading = $('#loading')
         
@@ -283,6 +284,12 @@ class UI
       page = $(this).data('page') - 1
       per = hits.val() - 0
       offset.val(page * per + 1)
+      form.submit()
+    )
+    
+    @opt.table.on('click', '.tag a', (event)->
+      event.preventDefault()
+      keyword.val( $(this).text() )
       form.submit()
     )
   
