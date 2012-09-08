@@ -1,6 +1,9 @@
 #About
 DMM.comのAPIを利用した検索ツールです。
 
+## Demo
+* [Demo Page](http://fc2ist.github.com/dmm-search/)
+
 ## Author
 Twitter: @moi_fc2  
 Blog: http://fc2ist.blog.fc2.com/
